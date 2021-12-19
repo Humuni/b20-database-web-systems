@@ -1,0 +1,21 @@
+{% extends 'navbar.html' %}
+{% block customstyles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+{% endblock %}
+{% block content %}
+    <h1>Feedback</h1>
+
+    {% for qnum in q_map %}
+        <div class="question" id="q{{ qnum }}">
+            <b>{{ q_map[qnum] }}</b>
+            <div class="feedback-items">
+                {% for entry in fb_list[qnum] %}
+                    <div class="feedback-entry">
+                        {{ entry }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
